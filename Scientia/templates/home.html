@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <style>
+        .top-but{
+            margin-left:0px;
+            margin-bottom:10px;
+        }
+        .add-info{
+            margin-top: 20px;
+            font-size:200%;
+            text-align: center;
+            margin-bottom: 0px;
+        }
+        .add-center{
+            text-align: center;
+            margin-top: 20px;
+            margin-left: 450px;
+        }
+        html {
+            margin: 40px auto;
+        }
+        .btn-search {
+        background: #424242;
+        border-radius: 0;
+        color: #fff;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #1c1c1c;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+        margin-left: 10px;
+        }
+        .btn-search:link, .btn-search:visited {
+        color: #fff;
+        }
+        .btn-search:active, .btn-search:hover {
+        background: #1c1c1c;
+        color: #fff;
+        }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>Scientia</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="input-group">
+                <div class="top-but">
+                    <button class="btn btn-search btn-info" type="button"><i class="fa fa-search fa-fw"></i> HOME
+                    </button>
+                    <span class="input-group-btn">
+                    <button class="btn btn-search btn-warning" type="button"><i class="fa fa-search fa-fw"></i> SHOW DATA
+                    </button>
+                    </span>
+                </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-btn">
+                <button class="btn btn-search btn-success" type="button"><i class="fa fa-search fa-fw"></i> Search
+                </button>
+            </span>
+        </div>
+    </div>
+    <p class="add-info">Add a new Employee</p>
+    <div class="container">
+        <div class="input-group">
+            <div class="input-group-btn">
+                <div class="add-center">
+                    <form method="POST">
+                        <input type="text" class="form-control" id="name" placeholder="Name">
+                        <input type="text" class="form-control" id="designation" placeholder="Designation">
+                        <input type="text" class="form-control" id="address" placeholder="Address">
+                        <input type="text" class="form-control" id="phone" placeholder="Phone">
+                        <button class="btn btn-search btn-primary" type="button" id="add-data"><i class="fa fa-search fa-fw"></i> ADD </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="add-info">Delete an Employee</p>
+    <div class="container">
+        <div class="input-group">
+            <div class="input-group-btn">
+                <div class="add-center">
+                    <input type="text" class="form-control" placeholder="Name">
+                    <input type="text" class="form-control" placeholder="Designation">
+                    <input type="text" class="form-control" placeholder="Address">
+                    <input type="text" class="form-control" placeholder="Phone">
+                    <button class="btn btn-search btn-danger" type="button"><i class="fa fa-search fa-fw"></i> Delete </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('#add-data').click(function(event) {
+                    var name1 = $('#name').val();
+                    var designation1 = $('#designation').val();
+                    var address1 = $('#address').val();
+                    var phone1 = $('#phone').val();
+                    $.ajax({
+                        type: 'POST',
+                        data: {
+                            name: name1,
+                            designation: designation1,
+                            address: address1,
+                            phone: phone1
+                        },
+                        url : '/'
+                    });
+            });
+        });
+    </script>
+  </body>
+</html>
